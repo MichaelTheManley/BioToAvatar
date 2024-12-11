@@ -1,49 +1,173 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 20vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: logo-grow 5s ease-in-out infinite;
-  }
+  background: linear-gradient(135deg, #ffaef4, #9365ff);
+  color: #001046;
 }
 
 .App-header {
-  background-color: #64b6cf;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: normal;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-submitFalse {
+.Heading {
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: black;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.Subheading {
+  font-size: 1.25rem;
+  font-weight: normal;
+  color: #333;
+  margin: 0;
+  margin-bottom: 10px; /* Space between the subheading and the bottom of the box */
+}
+
+.Top {
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: fit-content;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px; /* Space between the subheading and the bottom of the box */
+  margin-top: 40px; /* Space between the subheading and the bottom of the box */
+}
+
+.AI {
+  padding: 20px;
+  border-radius: 20px;
+  padding: 10px 20px;
+  background: linear-gradient(to right, purple, blue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.Middle {
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.MiddleLeft {
+  padding: 20px;
+  display: flex;
+  width: 60%;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.MiddleRight {
+  padding: 20px;
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 70px;
+}
+
+.Avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4548ff;
+  transition: all 0.3s ease; 
+}
+
+.Avatar:hover {
+  transform: scale(1.15); /* Scale the image on hover */
+}
+
+.TextBox {
+  width: 85%;
+  height: 400px;
+  padding: 15px 20px;
+  font-size: 20px;
+  font-family: 'Arial', sans-serif;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ffaef4, #9365ff); /* Gradient background */
+  color: #000000;
+  outline: none;
+  box-shadow: 0 4px 8px rgba(187, 181, 181, 0.1);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.TextBox:focus {
+  border: 2px solid #f36fff; /* Highlight border on focus */
+  box-shadow: 0 0 8px rgba(202, 111, 255, 0.7); /* Glowing effect on focus */
+}
+
+.TextBox::placeholder {
+  color: rgba(0, 7, 68, 0.7);
+  font-style: italic;
+}
+
+.Logo {
+  margin-top: 40px;
+  height: 10vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Logo {
+    animation: logo-grow 5s ease-in-out infinite;
+  }
+}
+
+.SubmitFalse:hover {
+  background-color: #a05345;
+  color: rgb(255, 102, 0);
+  border: 2px solid #e76326;
+  box-shadow: 0 0 8px rgba(255, 128, 111, 0.7); /* Glowing effect on focus */
+}
+
+.SubmitFalse {
   background-color: #af6b4c;
   border-radius: 10px;
-  border: none;
-  color: white;
+  border: 2px solid #af6b4c;
+  color: rgb(0, 0, 0);
   padding: 15px 32px;
-  text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-  cursor: pointer;
+  cursor: not-allowed;
   opacity: 0.5;
-  pointer-events: none;
 }
-.App-submitTrue {
+
+.SubmitTrue:hover {
+  background-color: #45a049;
+  color: rgb(94, 255, 0);
+  border: 2px solid #26e72f;
+  box-shadow: 0 0 8px rgba(111, 255, 123, 0.7); /* Glowing effect on focus */
+}
+
+.SubmitTrue {
   background-color: #4CAF50;
   border-radius: 10px;
-  border: none;
-  color: white;
+  border: 2px solid #4CAF50;
+  color: rgb(0, 0, 0);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -52,12 +176,7 @@
   margin: 4px 2px;
   cursor: pointer;
   opacity: 1;
-  pointer-events: none;
 }
-
-/* .App-submitTrue:hover {
-  background-color: #ffc400;
-} */
 
 @keyframes logo-grow {
   0% {
