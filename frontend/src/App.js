@@ -13,7 +13,7 @@ function App() {
 
   // Function to check if the biography is valid so people can't just enter in one character/word
   function isValidBiography(bio) {
-    const regex = /^[a-zA-Z0-9\s,.'-]{15,}$/;
+    const regex = /^.{15,}$/;
     return regex.test(bio);
   }
 
@@ -25,19 +25,6 @@ function App() {
     } catch (error) {
       console.error(error);
     }
-    // Make a POST request to the backend with the biography
-    // fetch("http://localhost:7777/api/avatar", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: JSON.stringify({ biography: biography })
-    // })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     // Set the avatar photo to the response from the backend
-    //     setAIPhoto(data.avatar);
-    //   });
   }
 
   return (
