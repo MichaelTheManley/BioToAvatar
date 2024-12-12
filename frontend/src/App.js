@@ -20,7 +20,7 @@ function App() {
   // Function to handle the submit button
   const handleSubmit = async () => {
     try {
-      const response = await axios.post("http://localhost:7777/generate_image", { description: biography });
+      const response = await axios.post("http://localhost:7777/generate_image", { post: biography });
       setAIPhoto(response.data.image_url);
     } catch (error) {
       console.error(error);
