@@ -24,6 +24,14 @@ rails s
 ```
 Now you will also have your backend running! Nice job 😎
 
+### But One Last Thing...
+Just before you get started, you MUST create a `.env` file in your `backend` folder. This file MUST contain the following:
+```notepad
+DALLE_API_KEY={your_api_key_for_openai}
+```
+
+This API key will be used for both the DALLE-3 API and the OpenAI API.
+
 ## How Does It Work? 💭
 On your `localhost:3000` you will be able to type in a biography/description of who you are or what you love. Type this in (it must exceed 15 characters) and then click on `Submit`. This will then send the entered text to the OpenAI API, prompting it to return bullet points of what you have entered. These bullet points are then fed into the DALLE-3 API in order to then have your profile picture generated. 
 
