@@ -1,18 +1,43 @@
 import logo from './resources/mindjoy_logo.png';
 import './App.css';
-import React from 'react';
+import { useState } from 'react';
+import axios from "axios";
+
 
 // Main App component
 function App() {
   // State variables for the biography and the biography input
-  const [biography, setBiography] = React.useState("");
-  const [biographyInput, setBiographyInput] = React.useState(false);
-  const [AIPhoto, setAIPhoto] = React.useState('https://p.potaufeu.asahi.com/1831-p/picture/27695628/89644a996fdd0cfc9e06398c64320fbe.jpg');
+  const [biography, setBiography] = useState("");
+  const [biographyInput, setBiographyInput] = useState(false);
+  const [AIPhoto, setAIPhoto] = useState('https://p.potaufeu.asahi.com/1831-p/picture/27695628/89644a996fdd0cfc9e06398c64320fbe.jpg');
 
   // Function to check if the biography is valid so people can't just enter in one character/word
   function isValidBiography(bio) {
     const regex = /^[a-zA-Z0-9\s,.'-]{15,}$/;
     return regex.test(bio);
+  }
+
+  // Function to handle the submit button
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post("http://localhost:7777/generate_image", { description: biography });
+      setAIPhoto(response.data.image_url);
+    } catch (error) {
+      console.error(error);
+    }
+    // Make a POST request to the backend with the biography
+    // fetch("http://localhost:7777/api/avatar", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({ biography: biography })
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     // Set the avatar photo to the response from the backend
+    //     setAIPhoto(data.avatar);
+    //   });
   }
 
   return (
@@ -46,7 +71,7 @@ function App() {
               </button>
             )}
             {biographyInput && (
-              <button className="SubmitTrue" disabled={false}>
+              <button className="SubmitTrue" disabled={false} onClick={handleSubmit}>
                 Submit
               </button>
             )}
